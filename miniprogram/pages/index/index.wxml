@@ -1,0 +1,56 @@
+<!--index.wxml-->
+<view class="container">
+  <l-toast />
+  <l-message />
+  <l-form name="student" l-form-btn-class="l-form-btn-class" bind:linsubmit="submit" bind:linreset="reset">
+    <l-form-item label="姓名:" name="name">
+      <l-input id="name" value="{{student.name}}" rules="{{nameRules}}" hide-label show-row="{{false}}" />
+    </l-form-item>
+
+    <l-form-item label="考号:" name="number">
+      <l-input type="number" id="number" value="{{student.number}}" rules="{{numRules}}" hide-label
+        show-row="{{false}}" />
+    </l-form-item>
+
+    <view slot="submit">
+      <l-button>提交</l-button>
+    </view>
+    <view slot="reset">
+      <l-button type="default" plain>重置</l-button>
+    </view>
+  </l-form>
+</view>
+<view wx:if="{{haveGetRecord}}" class="code_box">
+  <view class="code_box_title">成绩单</view>
+  <view class="code_box_record">
+    <view class="code_box_record_title">姓名</view>
+    <view class="code_box_record_title">语文</view>
+    <view class="code_box_record_title">地理</view>
+    <view class="code_box_record_title">生物</view>
+    <view class="code_box_record_title">历史</view>
+  </view>
+  <view class="line"></view>
+  <view class="code_box_record">
+    <view class="code_box_record_detail">{{result.name}}</view>
+    <view class="code_box_record_detail">{{result.chinese}}</view>
+    <view class="code_box_record_detail">{{result.geography}}</view>
+    <view class="code_box_record_detail">{{result.biology}}</view>
+    <view class="code_box_record_detail">{{result.history}}</view>
+  </view>
+
+  <view class="code_box_record">
+    <view class="code_box_record_title">数学</view>
+    <view class="code_box_record_title">英语</view>
+    <view class="code_box_record_title">道法</view>
+    <view class="code_box_record_title">总分</view>
+    <view class="code_box_record_title">名次</view>
+  </view>
+  <view class="line"></view>
+  <view class="code_box_record">
+    <view class="code_box_record_detail">{{result.math}}</view>
+    <view class="code_box_record_detail">{{result.english}}</view>
+    <view class="code_box_record_detail">{{result.politics}}</view>
+    <view class="code_box_record_detail">{{result.total}}</view>
+    <view class="code_box_record_detail">{{result.rank}}</view>
+  </view>
+</view>
